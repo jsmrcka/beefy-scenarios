@@ -12,6 +12,7 @@ import java.util.List;
 import org.acme.spring.data.rest.containers.PostgreSqlDatabaseTestResource;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import io.quarkus.test.common.QuarkusTestResource;
@@ -20,9 +21,11 @@ import io.restassured.response.Response;
 
 @QuarkusTest
 @QuarkusTestResource(PostgreSqlDatabaseTestResource.class)
+@DisplayName("BookRepositoryTest - Display Name")
 class BookRepositoryTest {
 
     @Test
+    @DisplayName("testAllRepositoryMethods - Display Name")
     void testAllRepositoryMethods() throws InterruptedException {
         //GET - List all books (should have all 4 books the database has initially)
         given()
