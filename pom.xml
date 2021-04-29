@@ -42,7 +42,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <surefire-plugin.version>2.22.1</surefire-plugin.version>
+        <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
         <testcontainers.version>1.15.2</testcontainers.version>
         <strimzi.testcontainers.version>0.22.1</strimzi.testcontainers.version>
         <wiremock.version>2.27.2</wiremock.version>
@@ -145,6 +145,11 @@
                     <systemProperties>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                     </systemProperties>
+          <statelessTestsetReporter
+                  implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+            <usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>
+            <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+          </statelessTestsetReporter>
                 </configuration>
             </plugin>
             <plugin>
